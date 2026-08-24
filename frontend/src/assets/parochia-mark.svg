@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-labelledby="title">
+<title id="title">Símbolo Parochia</title>
+<defs>
+  <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0F2D54"/>
+    <stop offset="1" stop-color="#1E4A8A"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#F5D78E"/>
+    <stop offset="0.5" stop-color="#D4AF37"/>
+    <stop offset="1" stop-color="#B88A22"/>
+  </linearGradient>
+</defs>
+<g transform="translate(25 18)">
+  <path fill="url(#navy)" d="
+    M35 12 H142
+    C205 12 244 49 244 105
+    C244 151 216 181 174 190
+    L141 156
+    L105 188
+    V251 H35 Z
+    M105 70 V132 H141
+    C163 132 177 121 177 101
+    C177 81 163 70 141 70 Z"/>
+  <path fill="#FFFFFF" d="M83 187 L139 139 L195 187 L177 187 L177 251 L101 251 L101 187 Z"/>
+  <path fill="url(#navy)" d="M126 251 V211 C126 196 137 185 139 185 C141 185 152 196 152 211 V251 Z"/>
+  <path fill="url(#gold)" d="M127 35 H151 V68 H184 V92 H151 V135 H127 V92 H94 V68 H127 Z"/>
+</g>
+</svg>

@@ -1,0 +1,19 @@
+export interface ApiEnvelope<T> { success: boolean; message: string; data: T; }
+export interface Paginated<T> { data: T[]; links?: unknown; meta?: unknown; }
+export interface Church { id: number; parish_id: number; name: string; description: string | null; phone: string | null; email: string | null; address: string | null; number: string | null; complement: string | null; district: string | null; city: string | null; state: string | null; zip_code: string | null; responsible_name: string | null; status: string; notes: string | null; }
+export interface Role { id: number; name: string; slug: string; description?: string | null; permissions?: Permission[]; }
+export interface Permission { id: number; name: string; description?: string | null; }
+export interface User { id: number; name: string; email: string; phone: string | null; avatar_url?: string | null; google_connected_at?: string | null; status: string; has_parish_access: boolean; permissions: string[]; churches: Church[]; roles?: Role[]; }
+export interface Parish { id: number; name: string; cnpj: string | null; phone: string | null; email: string | null; address: string | null; number: string | null; complement: string | null; district: string | null; city: string | null; state: string | null; zip_code: string | null; priest_name: string | null; status: string; notes: string | null; churches_count?: number; }
+export interface AppContext { type: 'parish' | 'church'; id: number; name: string; }
+export interface ContextPayload { current: { type: 'parish' | 'church' | null; id: number | null }; contexts: AppContext[]; }
+export interface DashboardCard { label: string; value: string | number; }
+export interface DashboardPayload { cards: DashboardCard[]; next_steps: string[]; }
+export interface EventCategory { id: number; tenant_id?: number | null; name: string; color: string; is_active: boolean; }
+export interface ParishEventReminder { id?: number; channel: 'INTERNAL' | 'EMAIL' | 'GOOGLE_CALENDAR'; minutes_before: number; }
+export interface ParishEvent { id: number; parish_id: number; church_id: number | null; event_category_id: number; responsible_user_id: number | null; title: string; description: string | null; scope: 'IGREJA' | 'PAROQUIAL'; show_on_all_churches: boolean; location: string | null; starts_at: string; ends_at: string | null; all_day: boolean; recurrence: Record<string, unknown> | null; notes: string | null; status: 'AGENDADO' | 'REALIZADO' | 'CANCELADO'; category?: { id: number; name: string; color: string }; church?: { id: number; name: string } | null; responsible?: { id: number; name: string } | null; reminders?: ParishEventReminder[]; participants?: Array<{ id: number; target_type: string; user_id?: number | null; church_id?: number | null; role_id?: number | null }>; }
+export interface CalendarEvent { id: string; title: string; start: string; end: string | null; allDay: boolean; backgroundColor: string; borderColor: string; extendedProps: ParishEvent; }
+export interface SystemNotification { id: number; type: string; title: string; message: string | null; action_url: string | null; data: Record<string, unknown> | null; read_at: string | null; created_at: string; church?: { id: number; name: string } | null; }
+export interface NotificationPayload { unread_count: number; notifications: SystemNotification[]; }
+export interface SubscriptionPlan { key: string; name: string; price: number; months: number; external_reference?: string; }
+export interface SubscriptionSummary { tenant: { id: number; name: string; billing_email: string | null; subscription_plan: string; subscription_status: string; subscription_price: string | number; subscription_renews_at: string | null; }; plan: SubscriptionPlan | null; available_plans: SubscriptionPlan[]; latest_order?: { id: number; status: string; plan_key: string; checkout_url: string | null; created_at: string } | null; }

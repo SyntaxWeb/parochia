@@ -1,0 +1,2 @@
+import type { ReactNode } from 'react';
+export function Panel({ title, action, children }: { title: string; action?: ReactNode; children: ReactNode }) { return <section className="rounded-lg border border-slate-200 bg-white shadow-sm"><div className="flex min-h-14 items-center justify-between border-b border-slate-200 bg-gradient-to-r from-white to-[#f8fbff] px-4"><h3 className="text-sm font-semibold text-parochia-navy">{title}</h3>{action}</div><div className="p-4">{children}</div></section>; }
