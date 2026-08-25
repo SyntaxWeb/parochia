@@ -28,7 +28,7 @@ export function LandingPage() {
           <h1 className="text-4xl font-semibold leading-tight md:text-6xl">Parochia</h1>
           <p className="mt-5 max-w-xl text-lg leading-8 text-white/85">Uma plataforma para organizar a rotina paroquial com agenda, comunidades, usuarios, permissoes, notificacoes e assinatura em um unico lugar.</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/login" className="inline-flex h-11 items-center justify-center rounded-md bg-parochia-gold px-5 text-sm font-semibold text-parochia-navy shadow-sm transition hover:bg-parochia-goldLight">Acessar sistema</Link>
+            <Link to="/cadastro" className="inline-flex h-11 items-center justify-center rounded-md bg-parochia-gold px-5 text-sm font-semibold text-parochia-navy shadow-sm transition hover:bg-parochia-goldLight">Comecar cadastro</Link>
             <a href="#recursos" className="inline-flex h-11 items-center justify-center rounded-md border border-white/40 px-5 text-sm font-semibold text-white transition hover:bg-white/10">Ver recursos</a>
           </div>
         </div>

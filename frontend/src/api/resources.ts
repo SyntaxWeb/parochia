@@ -1,5 +1,5 @@
 import { api } from './client';
-import type { ApiEnvelope, Church, DashboardPayload, Paginated, Parish, Permission, Role, User } from '../types/api';
+import type { ApiEnvelope, Church, DashboardPayload, OnboardingPayload, OnboardingResult, Paginated, Parish, Permission, Role, SubscriptionPlan, User } from '../types/api';
 
 type ListResponse<T> = T[] | Paginated<T>;
 
@@ -37,3 +37,6 @@ export async function requestSubscriptionCheckout(plan: string) { return (await 
 
 export async function createUserInvite(payload: { email?: string; name?: string; has_parish_access: boolean; church_ids: number[]; role_ids: number[] }) { return (await api.post<ApiEnvelope<{ id: number; url: string; token: string; expires_at: string }>>('/user-invites', payload)).data.data; }
 export async function getUserInvite(token: string) { return (await api.get<ApiEnvelope<{ token: string; email: string | null; name: string | null; tenant: { id: number; name: string }; expires_at: string | null }>>(`/invites/${token}`)).data.data; }
+
+export async function getOnboardingPlans() { return (await api.get<ApiEnvelope<SubscriptionPlan[]>>('/onboarding/plans')).data.data; }
+export async function createOnboarding(payload: OnboardingPayload) { return (await api.post<ApiEnvelope<OnboardingResult>>('/onboarding', payload)).data.data; }
